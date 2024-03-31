@@ -1,6 +1,7 @@
 /* Replace style bootstrap */
 body {
    font-family: Helvetica, sans-serif!important;
+   overflow-x: hidden;
 }
 
 .btn-success {
