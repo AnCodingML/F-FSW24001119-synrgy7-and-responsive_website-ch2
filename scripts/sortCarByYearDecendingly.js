@@ -6,16 +6,15 @@ function sortCarByYearDescendingly(cars) {
   // Apa itu side effect?
   
   const result = [...cars];
-  // Tulis code-mu disini
-  result.sort((a, b) => {
-    // Jika tahunnya berbeda, langsung urutkan berdasarkan tahun
-    if (a.year !== b.year) {
-      return b.year - a.year;
-    } else {
-      // Jika tahunnya sama, urutkan berdasarkan ID
-      return a.id - b.id;
+   // Tulis code-mu disini
+   let i, r, temp;
+   for (i = 0; i < result.length; i++) {
+    temp = result[i];
+    for (r = i - 1; r >= 0 && result[r].year < temp.year; r--) {
+        result[r + 1] = result[r];
     }
-  });
+    result[r + 1] = temp;
+}
   // Rubah code ini dengan array hasil sorting secara descending
   return result;
 }
