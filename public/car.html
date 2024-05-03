@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <link rel="stylesheet" href="./css/styles.css">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+</head>
+  <body>
+
+    <section class="bg__soft-blue">
+      <nav class="container d-flex justify-content-between py-4 align-items-center">
+         <div id="logo-nav" class="nav__logo"></div>
+         <div id="content-nav" class=" d-lg-block d-none">
+            <ul class="d-flex align-items-center gap-5 mb-0">
+               <li>Our Services</li>
+               <li>Why Us</li>
+               <li>Testimonial</li>
+               <li>FAQ</li>
+               <li><button class="btn btn-success rounded-1 fw-semibold">Register</button></li>
+            </ul>
+         </div>
+         <button class="btn btn-outline-dark border-0 d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-menu-2"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 6l16 0" /><path d="M4 12l16 0" /><path d="M4 18l16 0" /></svg></button>
+         <div class="offcanvas offcanvas-end pe-3" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel" style="max-width: 200px;">
+            <div class="offcanvas-header pt-4 mt-2 pb-0">
+               <div class="offcanvas-title fw-bold" id="offcanvasWithBothOptionsLabel">BCR</div>
+               <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" style="opacity: 1;"></button>
+            </div>
+            <div class="offcanvas-body">
+               <ul class="p-0 gap-3 d-grid">
+                  <li>Our Services</li>
+                  <li>Why Us</li>
+                  <li>Testimonial</li>
+                  <li>FAQ</li>
+                  <li><button class="btn btn-success rounded-1 fw-semibold">Register</button></li>
+               </ul>
+            </div>
+         </div>
+      </nav>
+   </section>
+
+   <section class="bg__soft-blue">
+      <div id="hero" class="container d-lg-flex align-items-center">
+         <div id="text-hero" class="col-lg-6 align-content-center py-5">
+            <h1 class="fw-bolder mb-4">Sewa & Rental Mobil Terbaik di kawasan (Lokasimu)</h1>
+            <p class="col-lg-9">Selamat datang di Binar Car Rental. Kami menyediakan mobil kualitas terbaik dengan harga terjangkau. Selalu siap melayani kebutuhanmu untuk sewa mobil selama 24 jam.</p>
+         </div>
+         <div id="img-hero" class="d-grid align-self-end col-lg-6">
+            <div id="car-img" class="justify-content-lg-end justify-content-center"><img src="./assets/img/img_car.png" alt=""></div>
+            <div id="car-img2"><img src="./assets/img/img_car.png" alt=""></div>
+            <div id="car-bg" class="col-12 col-lg-6"></div>
+         </div>
+         <div></div>
+      </div>
+   </section>
+
+   <section class="container px-4">
+      <div class="d-flex p-4 mx-5 shadow rounded-3">
+        <div>
+          <div>Tipe Driver</div>
+          <select name="cars" id="cars-select">
+            <option value="" disabled selected>Pilih Tipe Driver</option>
+            <option value="dengan-sopir">Dengan Sopir</option>
+            <option value="tanpa-sopir">Tanpa Sopir (Lepas Kunci)</option>
+          </select>
+        </div>
+        <form class="d-flex">
+          <div class="d-grid">
+            <label for="date">Tanggal Lahir:</label>
+            <input type="date" id="date" name="date">
+          </div>
+          <div class="d-grid">
+            <label for="date">waktu:</label>
+            <input type="time" id="time" name="time">
+          </div>
+          <div>
+            <div>Jumlah Penumpang</div>
+            <input id="capacity" type="number" placeholder="Masukan kapasitas">
+          </div>
+        </form>
+        <button id="load-btn">Load</button>
+      </div>
+   </section>
+
+    <div id="cars-container"></div>
+
+    <!-- Example Javascript -->
+    <script type="text/javascript" src="./scripts/binar.js"></script>
+    <script type="text/javascript" src="./scripts/app.example.js"></script>
+    <script type="text/javascript" src="./scripts/car.example.js"></script>
+    <script type="text/javascript" src="./scripts/main.example.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script>
+      function heighCarBg() {
+         var carImgHeight = document.getElementById("car-img").offsetHeight;
+         var carRefImg = document.getElementById("car-img2").offsetHeight;
+         document.getElementById("car-img").style.height = carRefImg + "px";
+         document.getElementById("car-bg").style.height = carRefImg * 0.09 + "%";
+         var screenWidth = window.innerWidth;
+         console.log("Lebar layar saat ini adalah: " + screenWidth + "px");
+      }
+      window.addEventListener('load', heighCarBg);
+      window.addEventListener('resize', heighCarBg);
+
+   </script>
+  </body>
+</html>

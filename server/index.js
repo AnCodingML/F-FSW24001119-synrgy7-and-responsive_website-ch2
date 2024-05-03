@@ -1,5 +1,5 @@
 const http = require('http'); // mengimport module http bawaan node js untuk membuat server
-const { PORT = 3000 } = process.env; // menyimpan variable PORT di enviroment sistem
+const { PORT = 1337 } = process.env; // menyimpan variable PORT di enviroment sistem
 
 const fs = require('fs'); // mengimport module fs untuk membaca file sistem
 const path = require('path'); // mengimport module path untuk membantu dalam manipulasi path file / url
@@ -24,7 +24,7 @@ const toBool = [() => true, () => false]; // fungsi untuk mengubah truthy & fals
 //fungsi untuk membaca file yang akan di tampilkan
 const prepareFile = async (url) => { 
   const paths = [STATIC_PATH, url]; // variable yang menyimpan array path folder dan url request
-  if (url.endsWith('/')) paths.push('/index.example.html'); // routing jika membuka '/' di browser maka akan membuka file index.html
+  if (url.endsWith('/')) paths.push('/index.html'); // routing jika membuka '/' di browser maka akan membuka file index.html
   if (!url.startsWith('/node_modules')) paths[0] += '/public'  // jika url bukan /node_modules maka path akan ditambahkan '/public' agar bisa membaca file di folder public
   
   const filePath = path.join(...paths); // fungsi untuk mengabungkan array paths (STATIC_PATH + url)
