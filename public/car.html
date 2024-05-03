@@ -6,9 +6,11 @@
    <title>Document</title>
    <link rel="stylesheet" href="./css/styles.css">
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 </head>
-  <body>
-
+  <body class="bg-white">
     <section class="bg__soft-blue">
       <nav class="container d-flex justify-content-between py-4 align-items-center">
          <div id="logo-nav" class="nav__logo"></div>
@@ -56,34 +58,75 @@
    </section>
 
    <section class="container px-4">
-      <div class="d-flex p-4 mx-5 shadow rounded-3">
-        <div>
-          <div>Tipe Driver</div>
-          <select name="cars" id="cars-select">
-            <option value="" disabled selected>Pilih Tipe Driver</option>
-            <option value="dengan-sopir">Dengan Sopir</option>
-            <option value="tanpa-sopir">Tanpa Sopir (Lepas Kunci)</option>
-          </select>
-        </div>
-        <form class="d-flex">
-          <div class="d-grid">
-            <label for="date">Tanggal Lahir:</label>
-            <input type="date" id="date" name="date">
+      <div id="form__filter-cars" class="d-flex p-4 mx-sm-5 shadow rounded-3 border">
+        <div class="d-lg-flex col-12 gap-3 align-items-end d-grid">
+          <div class="col">
+            <div>Tipe Driver</div>
+            <select class="form-select rounded-1 mt-1 border" name="cars" id="cars-select">
+              <option value="" disabled selected>Pilih Tipe Driver</option>
+              <option value="dengan-sopir">Dengan Sopir</option>
+              <option value="tanpa-sopir">Tanpa Sopir (Lepas Kunci)</option>
+            </select>
           </div>
-          <div class="d-grid">
-            <label for="date">waktu:</label>
-            <input type="time" id="time" name="time">
+          <div class="d-grid col">
+            <label for="date">Tanggal</label>
+            <input class="form-control rounded-1 mt-1 border" type="date" id="date" name="date">
+          </div>
+          <div class="d-grid col">
+            <label for="date">Waktu Jemput/Ambil</label>
+            <input class="form-control rounded-1 mt-1 border" type="time" id="time" name="time">
+          </div>
+          <div class="col">
+            <div>Jumlah Penumpang (optional)</div>
+            <div class="input-icon rounded-1 mt-1 border d-flex align-items-center">
+               <input class="form-control border-0" id="capacity" type="number" placeholder="Jumlah Penumpang">
+               <span class="input-icon-addon">
+                 <!-- Download SVG icon from http://tabler-icons.io/i/search -->
+                 <svg class="me-2" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M19.167 17.5V15.8333C19.1664 15.0948 18.9206 14.3773 18.4681 13.7936C18.0156 13.2099 17.3821 12.793 16.667 12.6083" stroke="#8A8A8A" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M14.1663 17.5V15.8333C14.1663 14.9493 13.8152 14.1014 13.19 13.4763C12.5649 12.8512 11.7171 12.5 10.833 12.5H4.16634C3.28229 12.5 2.43444 12.8512 1.80932 13.4763C1.1842 14.1014 0.833008 14.9493 0.833008 15.8333V17.5" stroke="#8A8A8A" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M13.333 2.60834C14.05 2.79192 14.6855 3.20892 15.1394 3.7936C15.5932 4.37827 15.8395 5.09736 15.8395 5.8375C15.8395 6.57765 15.5932 7.29674 15.1394 7.88141C14.6855 8.46609 14.05 8.88309 13.333 9.06667" stroke="#8A8A8A" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M7.50033 9.16667C9.34128 9.16667 10.8337 7.67428 10.8337 5.83333C10.8337 3.99238 9.34128 2.5 7.50033 2.5C5.65938 2.5 4.16699 3.99238 4.16699 5.83333C4.16699 7.67428 5.65938 9.16667 7.50033 9.16667Z" stroke="#8A8A8A" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+               </span>
+             </div>
           </div>
           <div>
-            <div>Jumlah Penumpang</div>
-            <input id="capacity" type="number" placeholder="Masukan kapasitas">
-          </div>
-        </form>
-        <button id="load-btn">Load</button>
+            <button class="btn rounded-1 btn-success border-0 fw-semibold" id="load-btn">Cari Mobil</button>
+          </div>          
+        </div>
       </div>
    </section>
 
-    <div id="cars-container"></div>
+    <div id="cars-container" class="container d-flex flex-wrap gap-3 mt-4 justify-content-center"></div>
+
+    <footer class="container pt-5 d-lg-flex mt-5">
+      <div class="me-5">
+        <p>Jalan Suroyo No. 161 Mayangan Kota <br> Probolonggo 672000</p>
+        <p>binarcarrental@gmail.com</p>
+        <p>081-233-334-808</p>
+      </div>
+      <div class="ps-lg-5 me-lg-5 fw-semibold">
+        <a class="text-decoration-none text-dark" href="#"><p>Our services</p></a>
+        <a class="text-decoration-none text-dark" href="#"><p>Why Us</p></a>
+        <a class="text-decoration-none text-dark" href="#"><p>Testimonial</p></a>
+        <a class="text-decoration-none text-dark" href="#"><p>FAQ</p></a>
+      </div>
+      <div class="ps-lg-5 me-lg-5 mb-3">
+        <p>Connect with us</p>
+        <div class="d-flex gap-3">
+          <a href="#"><img src="./assets/icon/icon_facebook.svg" alt="" height="32px" width="32px"></a>
+          <a href="#"><img src="./assets/icon/icon_instagram.svg" alt=""  height="32px" width="32px"></a>
+          <a href="#"><img src="./assets/icon/icon_twitter.svg" alt="" height="32px" width="32px"></a>
+          <a href="#"><img src="./assets/icon/icon_mail.svg" alt="" height="32px" width="32px"></a>
+          <a href="#"><img src="./assets/icon/icon_twitch.svg" alt="" height="32px" width="32px"></a>
+        </div>
+      </div>
+      <div class="ps-lg-5">
+        <p>Copyright Binar 2022</p>
+        <a href="#" class="nav__logo"></a>
+      </div>
+    </footer>
 
     <!-- Example Javascript -->
     <script type="text/javascript" src="./scripts/binar.js"></script>

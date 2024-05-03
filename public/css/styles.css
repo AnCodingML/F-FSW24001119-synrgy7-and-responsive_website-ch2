@@ -1,6 +1,6 @@
 /* Replace style bootstrap */
 body {
-   font-family: Helvetica, sans-serif!important;
+   /* font-family: Helvetica, sans-serif!important; */
    overflow-x: hidden;
 }
 
@@ -15,6 +15,13 @@ p {
    font-size: 14px!important;
 }
 
+.form-select, .form-control {
+   font-size: 14px!important;
+}
+
+option {
+   margin-block: 2px;
+}
 /*END Replace style bootstrap */
 
 #img-hero
@@ -130,4 +137,24 @@ nav li {
 
 .bg__dark-blue {
    background-color: #0D28A6;
+}
+
+#form__filter-cars {
+   margin-top: -40px;
+    background-color: white;
+    z-index: 1000;
+    position: relative;
+    font-size: 14px;
+}
+
+.card-car {
+ width: 333px;
+ height: 100%;
+}
+
+.car-img {
+   object-fit: cover;
+   height: 200px;
+   width: 100%;
+   object-position: center;
 }

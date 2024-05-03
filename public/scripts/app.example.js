@@ -10,13 +10,14 @@ class App {
   }
 
   async init() {
-    // await this.initial();
+    await this.initial();
     this.loadButton.onclick = () => {
       this.clear();
       this.load(this.typeDriver).then(() => this.run());
     };
     this.carsSelect.onchange = () => {
       this.typeDriver = this.carsSelect.value;
+      localStorage.setItem("TYPE_DRIVER", this.typeDriver);
     };
   }
 
