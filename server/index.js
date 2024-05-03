@@ -39,8 +39,8 @@ const prepareFile = async (url) => {
 
 //membuat server
 http.createServer(async (req, res) => {
-  if(req.url === '/tentang'){ // routing bila di browser membuka link /tentang maka akan membuka file /about.html
-    req.url = '/about.html'
+  if(req.url === '/cars'){ // routing bila di browser membuka link /tentang maka akan membuka file /about.html
+    req.url = '/car.html'
   }
   const file = await prepareFile(req.url); // memanggil fungsi prepareFile dengan parameter url
   const statusCode = file.found ? 200 : 404; // status code untuk di tampilkan di header

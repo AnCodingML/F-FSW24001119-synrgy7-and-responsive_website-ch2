@@ -41,11 +41,11 @@ class App {
     const capacity = document.getElementById('capacity').value;
 
     if (typeDriver === "") {
-      alert("Please select type of driver");
+      alert("Silahkan pilih tipe driver");
       return;
     }
     if (!dateInput || !timeInput) {
-      alert("Please input date and time");
+      alert("Silahkan masukan waktu dan tanggal");
       return;
     }
 
