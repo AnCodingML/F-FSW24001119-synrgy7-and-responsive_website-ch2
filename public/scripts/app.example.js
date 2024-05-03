@@ -10,7 +10,7 @@ class App {
   }
 
   async init() {
-    await this.initial();
+    // await this.initial();
     this.loadButton.onclick = () => {
       this.clear();
       this.load(this.typeDriver).then(() => this.run());

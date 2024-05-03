@@ -92,7 +92,7 @@
              </div>
           </div>
           <div>
-            <button class="btn rounded-1 btn-success border-0 fw-semibold" id="load-btn">Cari Mobil</button>
+            <button disabled class="btn rounded-1 btn-success border-0 fw-semibold" id="load-btn">Cari Mobil</button>
           </div>          
         </div>
       </div>
@@ -143,8 +143,31 @@
          var screenWidth = window.innerWidth;
          console.log("Lebar layar saat ini adalah: " + screenWidth + "px");
       }
-      window.addEventListener('load', heighCarBg);
-      window.addEventListener('resize', heighCarBg);
+
+      function updateButton () {
+        var button = document.getElementById("load-btn");
+        var carSelect = document.getElementById("cars-select");
+        var date = document.getElementById("date");
+        var time = document.getElementById("time");
+
+        if (carSelect.value && date.value && time.value) {
+          button.disabled = false;
+        }
+        else {
+          button.disabled = true;
+        }
+      }
+      window.addEventListener('load', function() {
+          heighCarBg();
+      });
+
+      window.addEventListener('resize', function() {
+          heighCarBg();
+      });
+
+      window.addEventListener('change', function() {
+          updateButton();
+      });
 
    </script>
   </body>
